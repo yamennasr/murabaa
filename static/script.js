@@ -91,9 +91,7 @@ function updateCubeMotion() {
   const xOffset = xPoint * window.innerWidth * 0.7;
   const yOffset = yPoint * window.innerHeight * 0.24;
 
-  cube.style.left = `calc(50vw + ${xOffset}px)`;
-  cube.style.top = `calc(50vh + ${yOffset}px)`;
-  cube.style.transform = `translate(-50%, -50%) scale(${sizePoint}) rotateX(${rotateXPoint}deg) rotateY(${rotateYPoint}deg) rotateZ(${easedProgress * 18}deg)`;
+  cube.style.transform = `translate3d(calc(-50% + ${xOffset}px), calc(-50% + ${yOffset}px), 0) scale(${sizePoint}) rotateX(${rotateXPoint}deg) rotateY(${rotateYPoint}deg) rotateZ(${easedProgress * 18}deg)`;
   cube.style.setProperty('--rot-x', `${rotateXPoint}deg`);
   cube.style.setProperty('--rot-y', `${rotateYPoint}deg`);
   cube.style.setProperty('--rot-z', `${easedProgress * 18}deg`);
@@ -104,12 +102,90 @@ function updateCubeMotion() {
   }
 }
 
+let pendingFrame = false;
+
 function handleScroll() {
   revealOnScroll();
-  updateCubeMotion();
+  if (!pendingFrame) {
+    pendingFrame = true;
+    requestAnimationFrame(() => {
+      updateCubeMotion();
+      pendingFrame = false;
+    });
+  }
+}
+
+const navbar = document.querySelector('.navbar');
+const navbarContrastSections = Array.from(document.querySelectorAll('[data-navbar-contrast="light"]'));
+let navbarObserver = null;
+
+function updateNavbarContrast(entries) {
+  const isDarkVisible = entries.some(entry => entry.isIntersecting && entry.intersectionRatio > 0.1);
+  if (!navbar) return;
+  if (isDarkVisible) {
+    navbar.classList.add('navbar--light');
+  } else {
+    navbar.classList.remove('navbar--light');
+  }
+}
+
+function initNavbarContrastObserver() {
+  if (!navbar || navbarContrastSections.length === 0) return;
+  navbarObserver = new IntersectionObserver(updateNavbarContrast, {
+    root: null,
+    threshold: [0, 0.1, 0.25, 0.5],
+  });
+  navbarContrastSections.forEach(section => navbarObserver.observe(section));
 }
 
 window.addEventListener('scroll', handleScroll, { passive: true });
-window.addEventListener('load', handleScroll);
+window.addEventListener('load', () => {
+  handleScroll();
+  initNavbarContrastObserver();
+});
 window.addEventListener('resize', handleScroll);
 handleScroll();
+
+const counters = document.querySelectorAll(".count");
+
+const animateCounter = (counter) => {
+  const target = Number(counter.dataset.target);
+  const prefix = counter.dataset.prefix || "";
+  const suffix = counter.dataset.suffix || "";
+
+  const duration = 1500;
+  const start = performance.now();
+
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+
+    // Ease out
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    const value = Math.round(eased * target);
+
+    counter.textContent = `${prefix}${value}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+};
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      animateCounter(entry.target);
+      observer.unobserve(entry.target); // animate only once
+    });
+  },
+  {
+    threshold: 0.5
+  }
+);
+
+counters.forEach((counter) => observer.observe(counter));

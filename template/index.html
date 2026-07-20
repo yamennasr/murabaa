@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/static/style.css" />
   <title>Murabaa</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,7 +16,7 @@
       <img class="nav-logo" src="/static/icons/Murabaa Logo Purple.png" alt="Murabaa Logo" />
       <div class="nav-links">
         <a href="#home" class="nav-link">Home</a>
-        <a href="#offer" class="nav-link">Services</a>
+        <a href="#offer" class="nav-link">Our Work</a>
         <a href="#contact" class="nav-link">Contact Us</a>
       </div>
       <button class="language-toggle" type="button">EN</button>
@@ -37,11 +37,11 @@
   <main id="home">
     <section class="hero">
       <div class="hero-copy" data-reveal>
-        <h1 class="glow">Murabaa</h1>
-        <p>Your team is your best creator. They just don't know it yet. We can change it by giving them a framework & permission to show up.</p>
+        <h1 class="glow">Your best creators are already on your team</h1>
+        <p>They just don't know it yet.</p>
         <div class="hero-actions">
-          <a class="cta-button" href="#contact">Get in touch</a>
-          <a class="text-link" href="#offer">Explore our services</a>
+          <a class="cta-button" href="#contact">Book a call</a>
+          <a class="text-link" href="#offer">Explore our work</a>
         </div>
       </div>
 
@@ -49,58 +49,62 @@
       </div>
     </section>
 
-    <section class="offer-section" id="offer">
-      <div class="offer-copy" data-reveal>
-        <h1>What do we offer?</h1>
-        <p>We help you develop an employee content program to activate existing teams already on the payroll.</p>
-      </div>
+<section class="offer-section" id="offer">
+  <div class="offer-copy" data-reveal>
+    <p class="offer-text">
+      We help you develop an <strong>employee content program</strong> to activate existing teams already on the payroll.
+    </p>
+  </div>
 
-      <div class="offer-stack" data-reveal>
-        <div class="offer-card-image primary">
-          <img src="/static/images/Riviera.png" alt="Content workflow inspiration" />
-        </div>
-        <div class="offer-card-image secondary">
-          <img src="/static/images/scents.png" alt="Content planning overview" />
-        </div>
-      </div>
-    </section>
+  <div class="offer-card-stack">
+    <div class="offer-card card-back">
+      <img src="/static/images/Jana IMG2.png" alt="Card 2">
+    </div>
 
-    <section class="stats-section" data-reveal>
-      <article class="stat-item">
-        <h3>35%</h3>
-        <p>of agency's budget redirected internally</p>
-      </article>
-      <article class="stat-item">
-        <h3>3x</h3>
-        <p>more trust in employee content</p>
-      </article>
-      <article class="stat-item">
-        <h3>0$</h3>
-        <p>spent on headcount</p>
-      </article>
-    </section>
+    <div class="offer-card card-front">
+      <img src="/static/images/Jana IMG.png" alt="Card 1">
+    </div>
+  </div>
+</section>
 
-    <section class="advantages-section">
+<section class="stats-section" data-reveal>
+  <article class="stat-item">
+    <h3 class="count" data-target="35" data-suffix="%">0%</h3>
+    <p>of agency's budget<br>redirected internally</p>
+  </article>
+
+  <article class="stat-item">
+    <h3 class="count" data-target="3" data-suffix="x">0x</h3>
+    <p>more trust in<br>employee content</p>
+  </article>
+
+  <article class="stat-item">
+    <h3 class="count" data-target="0" data-prefix="$">0$</h3>
+    <p>spent on headcount<br>and video production</p>
+  </article>
+</section>
+
+    <section class="advantages-section" data-navbar-contrast="light">
       <div class="advantages-title" data-reveal>
-        <h2>You're Paying Your Agency to Sound Generic</h2>
+        <h2>You're paying your agency to be generic</h2>
       </div>
       <div class="advantages-list" data-reveal>
         <article>
-          <span class="advantage-icon">✦</span>
+          <span class="advantage-icon"><img src="/static/icons/Paying-icon.png" alt="Paying for average icon" /></span>
           <div>
             <h3>PAYING FOR AVERAGE</h3>
             <p>Agencies bill for production, models, and management, delivering content any competitor could have made.</p>
           </div>
         </article>
         <article>
-          <span class="advantage-icon">✦</span>
+          <span class="advantage-icon"><img src="/static/icons/Team-icon.png" alt="Paying for average icon" /></span>
           <div>
             <h3>YOUR TEAM WANTS IN</h3>
             <p>Employees would love to be brand ambassadors. Yet nobody has given them the framework, confidence, or permission.</p>
           </div>
         </article>
         <article>
-          <span class="advantage-icon">✦</span>
+          <span class="advantage-icon"><img src="/static/icons/AI-icon.png" alt="Paying for average icon" /></span>
           <div>
             <h3>AI IS EVERYWHERE</h3>
             <p>Authentic human content is becoming the scarcest asset in marketing. The brands that act now will own the feed.</p>
@@ -130,31 +134,44 @@
       </div>
     </section>
 
-    <section class="why-murabaa" data-reveal>
-      <div class="why-murabaa-image">
-        <img src="/static/images/Founder Jana.png" alt="Why Murabaa" />
-      </div>
-      <div class="why-murabaa-copy">
-        <span class="eyebrow">Build smarter teams and better products</span>
-        <p>Murabaa helps teams collaborate faster, organize ideas, and ship higher-quality work with less friction. Start with simple workflows, clear visibility, and powerful automation.
-From planning and feedback to release-ready execution, every step is designed to keep your team aligned and moving forward.</p>
-      </div>
-      
-    </section>
 
     <section class="contact-section" id="contact" data-reveal>
       <div class="contact-card">
-        <p class="eyebrow">Let's create momentum</p>
-        <h2>Bring structure to your ideas and a system to your team.</h2>
-        <a class="cta-button" href="mailto:jana@murabaa.org">jana@murabaa.org</a>
+        <p class="eyebrow">Join Our Employee Content Program</p>
+        <h2>It's time your team owned the feed.</h2>
+        <a class="cta-button" href="mailto:jana@murabaa.org">Book a discovery call</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© 2026 Murabaa</p>
+  <footer class="site-footer">
+    <div class="footer-container1">
+      <div class="footer-newsletter">
+        <p class="small-title">Join Our Newsletter</p>
+        <form class="newsletter-form" action="#" method="post" onsubmit="return false;">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
+          <button type="submit" class="cta-button">Subscribe</button>
+        </form>
+      </div>
+      </div>
+
+    <div class="footer-container2">
+      <div class="footer-branding">
+        <img class="footer-logo" src="/static/icons/Murabaa Logo Purple.png" alt="Murabaa Logo" />
+      </div>
+      
+      <div class="footer-social">
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn" class="social-link"><img src="/static/icons/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#" aria-label="Instagram" class="social-link"><img src="/static/icons/instagram.png" alt="Instagram" /></a>
+          <a href="#" aria-label="Facebook" class="social-link"><img src="/static/icons/facebook.png" alt="Facebook" /></a>
+          <a href="#" aria-label="WhatsApp" class="social-link"><img src="/static/icons/whatsapp.png" alt="WhatsApp" /></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="/static/script.js" defer></script>
 </body>
 </html>
